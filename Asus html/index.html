@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASUS Shop</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding-top: 100px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 15px 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1001;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            margin-right: 50px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            flex: 1;
+        }
+
+        .nav-links span {
+            color: rgb(151, 151, 151);
+            font-size: 14px;
+        }
+
+        .nav-links span:hover {
+            color: black;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-icons img {
+            height: 24px;
+        }
+
+        .newsletter-leiste {
+            background-color: rgb(0, 162, 255);
+            height: 30px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: small;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .highlights-section {
+            padding: 40px 50px;
+            background-color: white;
+        }
+
+        .highlights-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .products-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .product-card {
+            width: 220px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: white;
+        }
+
+        .product-name {
+            font-size: 14px;
+            font-weight: bold;
+            margin: 15px 0 10px 0;
+            min-height: 40px;
+        }
+
+        .product-image-link {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            cursor: pointer;
+        }
+
+        .product-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .stock-status {
+            color: green;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .cart-button {
+            width: 100%;
+            background-color: rgb(0, 162, 255);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .cart-button:hover {
+            background-color: rgb(0, 140, 220);
+        }
+
+        .category-banner {
+            padding: 0;
+            background-color: white;
+        }
+
+        .category-container {
+            display: flex;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            padding: 40px;
+        }
+
+        .category-box {
+            flex: 0 0 calc(50% - 20px);
+            background-color: #f5f5f5;
+            padding: 40px;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .category-box.notebooks .category-title,
+        .category-box.notebooks .category-subtitle {
+            margin-left: 10px;
+        }
+
+        .category-box.proart .category-title,
+        .category-box.proart .category-subtitle {
+            margin-left: 10px;
+        }
+
+        .category-title,
+        .category-subtitle {
+            position: relative;
+            z-index: 1;
+        }
+
+        .category-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .category-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .category-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 50%;
+            height: auto;
+            object-fit: contain;
+            z-index: 0;
+        }
+
+        .category-box.notebooks .category-image,
+        .category-box.proart .category-image {
+            top: 55%;
+            left: 55%;
+        }
+
+        .footer-image-container {
+            width: 100%;
+            margin-top: 60px;
+        }
+
+        .footer-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="logo">
+            <a href="Asus Hauptseite.html">
+                <img src="ASUS_LOGO_GREY.svg" alt="ASUS Logo">
+            </a>
+        </div>
+
+        <div class="nav-links">
+            <span>Mainboards</span>
+            <span>Grafikkarten</span>
+            <span>NoteBooks</span>
+            <span>Monitore</span>
+            <span>WLAN</span>
+            <span>Periphere</span>
+            <span>Komponenten & Zubehör</span>
+            <span>Desktops PCs</span>
+            <span>Aktionen</span>
+        </div>
+
+        <div class="header-icons">
+            <img src="search.png" alt="Suche">
+            <img src="profil.png" alt="Profil">
+            <img src="warenkorb.png" alt="Warenkorb">
+        </div>
+    </div>
+
+    <div class="newsletter-leiste">
+        Melde Dich zum Asus Newsletter an
+    </div>
+
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+        <!-- zurück button -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <!-- weiter button -->
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides"><!--1/5-->
+            <div class="numbertext"></div>
+            <img src="Asus Slideshow 1.png" style="width:100%">
+            <div class="text"></div>
+        </div>
+
+        <div class="mySlides"><!--2/5-->
+            <div class="numbertext"></div>
+            <img src="Black Friday slideshow 2.png" style="width:100%">
+            <div class="text"></div>
+        </div>
+
+        <div class="mySlides"><!--3/5-->
+            <div class="numbertext"></div>
+            <img src="asus slideshow 3.png" style="width:100%">
+            <div class="text"></div>
+        </div>
+
+        <div class="mySlides"> <!--4/5-->
+            <div class="numbertext"></div>
+            <img src="asus slideshow 4.png" style="width:100%">
+            <div class="text"></div>
+        </div>
+
+        <div class="mySlides"><!--5/5-->
+            <div class="numbertext"></div>
+            <img src="asus slideshow 5.png" style="width:100%">
+            <div class="text"></div>
+        </div>
+
+        <link rel="stylesheet" href="slideshow.css">
+        <script src="slideshow.js"></script>
+    </div>
+
+    <!-- Highlights Section -->
+    <div class="highlights-section">
+        <h2 class="highlights-title">Highlights</h2>
+        <div class="products-container">
+            <!-- Produkt 1 -->
+            <div class="product-card">
+                <a href="produkt1.html" class="product-image-link">
+                    <img src="rog-crosshair-x870e-hero-btf-6-282887747-90mb1mx0-m0eay0-webp_1760447760_400x400.webp" alt="Produkt 1" class="product-image">
+                </a>
+                <div class="product-name">ASUS ROG CROSSHAIR X870E HERO BTF Mainboard Sockel AM5</div>
+                <div class="product-price">1.099,90 €</div>
+                <div class="stock-status">Auf Lager</div>
+                <button class="cart-button">In den Warenkorb</button>
+            </div>
+
+            <!-- Produkt 2 -->
+            <div class="product-card">
+                <a href="produkt2.html" class="product-image-link">
+                    <img src="vg27aq5a-282887556-90lm0bn0-b01371-webp_1752280283_400x400.webp" alt="Produkt 2" class="product-image">
+                </a>
+                <div class="product-name">ASUS TUF Gaming VG27AQ5A QHD Monitor</div>
+                <div class="product-price">189,90 €</div>
+                <div class="stock-status">Auf Lager</div>
+                <button class="cart-button">In den Warenkorb</button>
+            </div>
+
+            <!-- Produkt 3 -->
+            <div class="product-card">
+                <a href="produkt3.html" class="product-image-link">
+                    <img src="vg27aql5a-282887537-90lm0bm0-b01371-webp_1752141098_400x400.webp" alt="Produkt 3" class="product-image">
+                </a>
+                <div class="product-name">ASUS TUF Gaming VG27AQL5A 27 Zoll WQHD Monitor</div>
+                <div class="product-price">199,90 €</div>
+                <div class="stock-status">Auf Lager</div>
+                <button class="cart-button">In den Warenkorb</button>
+            </div>
+
+            <!-- Produkt 4 -->
+            <div class="product-card">
+                <a href="produkt4.html" class="product-image-link">
+                    <img src="11-prime-rtx5070-o12g-white-boxvga-282887045-90yv0m19-m0na00-webp_1751910414_400x400.webp" alt="Produkt 4" class="product-image">
+                </a>
+                <div class="product-name">ASUS PRIME GeForce RTX 5070 White OC Edition 12GB GDDR7</div>
+                <div class="product-price">1.001,90 €</div>
+                <div class="stock-status">Auf Lager</div>
+                <button class="cart-button">In den Warenkorb</button>
+            </div>
+
+            <!-- Produkt 5 -->
+            <div class="product-card">
+                <a href="produkt5.html" class="product-image-link">
+                    <img src="11-tuf-rtx5070ti-o16g-white-gaming-boxvga-282887046-90yv0md3-m0na00-webp_1752138362_400x400.webp" alt="Produkt 5" class="product-image">
+                </a>
+                <div class="product-name">ASUS TUF Gaming GeForce RTX 5070 Ti 16GB GDDR7 White</div>
+                <div class="product-price">608,90 €</div>
+                <div class="stock-status">Auf Lager</div>
+                <button class="cart-button">In den Warenkorb</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Banner Section -->
+    <div class="category-banner">
+        <div class="category-container">
+            <!-- Mainboards -->
+            <div class="category-box">
+                <div class="category-title">Mainboards</div>
+                <div class="category-subtitle">Unsere Mainboards für Gamer</div>
+                <img src="mainboards-bild.png" alt="Mainboard" class="category-image">
+            </div>
+
+            <!-- Notebooks -->
+            <div class="category-box notebooks">
+                <div class="category-title">Notebooks</div>
+                <div class="category-subtitle">Volle Power, egal wo Du bist</div>
+                <img src="notebook.png" alt="Notebook" class="category-image">
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Banner Section 2 -->
+    <div class="category-banner">
+        <div class="category-container">
+            <!-- AIO -->
+            <div class="category-box">
+                <div class="category-title">AiO</div>
+                <div class="category-subtitle">Elegant und leistungsstark</div>
+                <img src="aio.png" alt="AiO" class="category-image">
+            </div>
+
+            <!-- ProArt -->
+            <div class="category-box proart">
+                <div class="category-title">ProArt</div>
+                <div class="category-subtitle">Extremer Kontrast, unglaublicher Realismus</div>
+                <img src="proart.png" alt="ProArt" class="category-image">
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Banner Section 3 -->
+    <div class="category-banner">
+        <div class="category-container">
+            <!-- Grafikkarten -->
+            <div class="category-box">
+                <div class="category-title">Grafikkarten</div>
+                <div class="category-subtitle">Leistungsstarke Grafikkarten für Gamer</div>
+                <img src="grafikkarten.png" alt="Grafikkarten" class="category-image">
+            </div>
+
+            <!-- ROG Ally -->
+            <div class="category-box">
+                <div class="category-title">ROG Ally</div>
+                <div class="category-subtitle">Deine Games, wo auch immer du willst</div>
+                <img src="rog-ally.png" alt="ROG Ally" class="category-image">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-image-container">
+        <img src="footer bild.png" alt="Footer" class="footer-image">
+    </div>
+
+
+</body>
+
+</html>
